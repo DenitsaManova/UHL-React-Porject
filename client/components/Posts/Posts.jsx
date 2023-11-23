@@ -1,7 +1,20 @@
-import styles from './Posts.module.css'
+import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
+import * as postsService from '../../src/services/postsService';
+
+import styles from './Posts.module.css'
+
 export default function Posts() {
+    const [posts, setPosts ] = useState([]);
+
+    useEffect(() => {
+        postsService.getAll()
+            .then(result => setPosts(result));
+    }, []);
+
+    console.log(posts);
+
     return (
         <section className={styles["container"]}>
         <div className={styles["blogs-item"]}>
