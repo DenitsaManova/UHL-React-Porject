@@ -1,23 +1,21 @@
-import { request } from "../lib/request";
+import * as request  from "../lib/request";
 
 const baseUrl = 'http://localhost:3030/jsonstore/posts';
 
 export const getAll = async () => {
-    const result = await request('GET', baseUrl);
+    const result = await request.get(baseUrl);
     
     return Object.values(result);
 }
 
-export const create = async (postData) => {
-    const response = await fetch(baseUrl, {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(postData)
-    });
+export const getOne = async (postId) => {
+    const result = await request.get(`${baseUrl}/${postId}`);
 
-    const result = await response.json();
+    return result;
+}
+
+export const create = async (postData) => {
+    const result = await request.post(baseUrl, postData);
 
     return result;
 }

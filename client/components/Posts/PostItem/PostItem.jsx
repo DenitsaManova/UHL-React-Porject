@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
 import styles from "../Posts.module.css";
 
 export default function PostItem({
+    _id,
     title,
     imageUrl,
     description
@@ -9,7 +12,7 @@ export default function PostItem({
     return(
         <div className={styles["blog-item"]}>
             <div className={styles["blog-image"]}>
-            <img src={imageUrl} alt="Image"/>
+            <img src={imageUrl} alt={title}/>
             </div>
                 <h4>{title}</h4>
             <div className={styles["description"]}>
@@ -21,7 +24,7 @@ export default function PostItem({
                 
                 {/* TODO: Add id to address */}
                   {/* <Link to={`/posts/details`} className={styles["detailsBtn"]}>Details</Link>   */}
-                <button className={styles["detailsBtn"]}>Details</button>
+                <Link to={`/posts/details/${_id}`} className={styles["detailsBtn"]}>Details</Link>
 
             </div>
         </div>

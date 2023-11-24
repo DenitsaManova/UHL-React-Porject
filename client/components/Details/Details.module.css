@@ -9,7 +9,7 @@
     margin-top: 50px;
   }   
 
-.blogs-item {
+.blog-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +26,12 @@
     transition: all .3s;
 }
 
-.blogs-item:hover {
+.blog-item h4{
+    margin-top:0.4em;
+    margin-bottom: 0;
+}
+
+.blog-item:hover {
     transform: translateY(-4px);
     box-shadow: 10px 8px 30px rgb(0 0 0 / 30%);
 }

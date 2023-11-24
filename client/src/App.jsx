@@ -19,7 +19,7 @@ function App() {
     <Route path="/" element={<Home />} />
     {/* TODO: Add route to details and edit page */}
     <Route path="/posts" element={<Posts />} />
-    <Route path="/posts/details" element={<Details />} />
+    <Route path="/posts/details/:postId" element={<Details />} />
     <Route path="/posts/create" element={<Create />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Regsiter />} />
