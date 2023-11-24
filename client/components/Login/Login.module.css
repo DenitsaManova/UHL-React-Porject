@@ -23,7 +23,7 @@
     margin-bottom: 2rem;
 }
 
-.userName,
+.email,
 .userPassword {
     text-align: center;
     border: 2px solid cyan;
@@ -38,7 +38,7 @@
     transition: all .2s ease-in-out;
 }
 
-.userName:focus,
+.email:focus,
 .userPassword:focus {
     width: 20rem;
     animation-name: colorChange;
