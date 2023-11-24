@@ -13,7 +13,9 @@ body {
   
  .content {
     flex: 1;
-    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  padding: 20px;
     color: #120101;
     font-family: 'Ubuntu', sans-serif;
   } 
