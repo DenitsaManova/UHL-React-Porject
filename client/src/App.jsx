@@ -13,18 +13,23 @@ import Regsiter from '../components/Register/Register';
 import Create from '../components/Create/Create';
 import Posts from '../components/Posts/Posts';
 import Details from '../components/Details/Details';
+import Logout from '../components/Logout/Logout';
 
 
 
 function App() {
   const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useState(() => {
+    localStorage.removeItem('accessToken');
+
+    return {};
+  });
 
   const loginSubmitHandler = async (values) => {
     const result = await authService.login(values.email, values.password);
 
     setAuth(result);
-
+    localStorage.setItem('accessToken', result.accessToken);
     navigate(Path.Home);
   };
 
@@ -32,13 +37,21 @@ function App() {
     const result = await authService.register(values.email, values.password);
 
     setAuth(result);
-
+    localStorage.setItem('accessToken', result.accessToken);
     navigate(Path.Home);
+  }
+
+  const logoutHandler = () => {
+    setAuth({});
+    localStorage.removeItem('accessToken');
+    navigate(Path.Home);
+
   }
 
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     email: auth.email,
     isAuthenticated: !!auth.email,
   }
@@ -55,6 +68,7 @@ function App() {
           <Route path={Path.CreatePost} element={<Create />} />
           <Route path={Path.Login} element={<Login />} />
           <Route path={Path.Register} element={<Regsiter />} />
+          <Route path={Path.Logout} element={<Logout />} />
         </Routes>
         <Footer />
       </div>
