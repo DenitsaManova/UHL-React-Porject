@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import * as postService from '../../src/services/postsService';
+import * as postService from '../../services/postsService';
 
 import styles from './Details.module.css'
 

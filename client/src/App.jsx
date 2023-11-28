@@ -5,15 +5,15 @@ import * as authService from './services/authService';
 import AuthContext from './contexts/authContext';
 import Path from './paths';
 
-import Header from "../components/Header/Header"
-import Footer from "../components/Footer/Footer";
-import Home from "../components/Home/Home";
-import Login from '../components/Login/Login';
-import Regsiter from '../components/Register/Register';
-import Create from '../components/Create/Create';
-import Posts from '../components/Posts/Posts';
-import Details from '../components/Details/Details';
-import Logout from '../components/Logout/Logout';
+import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer";
+import Home from "./components/Home/Home";
+import Login from './components/Login/Login';
+import Regsiter from './components/Register/Register';
+import Create from './components/Create/Create';
+import Posts from './components/Posts/Posts';
+import Details from './components/Details/Details';
+import Logout from './components/Logout/Logout';
 
 
 

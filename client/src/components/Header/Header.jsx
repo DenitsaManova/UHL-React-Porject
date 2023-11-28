@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import AuthContext from '../../src/contexts/authContext';
+import AuthContext from '../../contexts/authContext';
 
 import styles from './Header.module.css'
 import logo from './uhl-logo.png'

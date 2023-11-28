@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import * as postService from '../../src/services/postsService';
+import * as postService from '../../services/postsService';
 import styles from './Create.module.css';
 
 export default function Create() {

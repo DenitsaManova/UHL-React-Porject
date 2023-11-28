@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import styles from './Register.module.css'
-import AuthContext from '../../src/contexts/authContext'
-import useForm from '../../src/hooks/useForm';
+import AuthContext from '../../contexts/authContext'
+import useForm from '../../hooks/useForm';
 
 const RegisterFormKeys = {
     Email: 'email',

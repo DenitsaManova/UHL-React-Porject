@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import * as postsService from '../../src/services/postsService';
+import * as postsService from '../../services/postsService';
 import PostItem from './PostItem/PostItem';
 
 import styles from './Posts.module.css'
