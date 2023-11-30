@@ -1,7 +1,5 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import * as authService from './services/authService';
 import { AuthProvider } from './contexts/authContext';
 import Path from './paths';
 
@@ -14,50 +12,14 @@ import Create from './components/Create/Create';
 import Posts from './components/Posts/Posts';
 import Details from './components/Details/Details';
 import Logout from './components/Logout/Logout';
+import Edit from './components/Edit/Edit';
 
 
 
 function App() {
-  const navigate = useNavigate();
-  const [auth, setAuth] = useState(() => {
-    localStorage.removeItem('accessToken');
-
-    return {};
-  });
-
-  const loginSubmitHandler = async (values) => {
-    const result = await authService.login(values.email, values.password);
-
-    setAuth(result);
-    localStorage.setItem('accessToken', result.accessToken);
-    navigate(Path.Home);
-  };
-
-  const registerSubmitHandler = async (values) => {
-    const result = await authService.register(values.email, values.password);
-
-    setAuth(result);
-    localStorage.setItem('accessToken', result.accessToken);
-    navigate(Path.Home);
-  }
-
-  const logoutHandler = () => {
-    setAuth({});
-    localStorage.removeItem('accessToken');
-    navigate(Path.Home);
-
-  }
-
-  const values = {
-    loginSubmitHandler,
-    registerSubmitHandler,
-    logoutHandler,
-    email: auth.email,
-    isAuthenticated: !!auth.email,
-  }
 
   return (
-    <AuthProvider value={values}>
+    <AuthProvider>
       <div>
         <Header />
         <Routes>
@@ -69,6 +31,7 @@ function App() {
           <Route path={Path.Login} element={<Login />} />
           <Route path={Path.Register} element={<Regsiter />} />
           <Route path={Path.Logout} element={<Logout />} />
+          <Route path={Path.EditPost} element={<Edit />} />
         </Routes>
         <Footer />
       </div>
