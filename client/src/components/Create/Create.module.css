@@ -18,12 +18,12 @@
     border: 1px solid black;
 }
 
-.edit-title {
+.create-title {
     font-size: 2rem;
     margin-bottom: 2rem;
 }
 
-.edit {
+.create {
     text-align: center;
     border: 2px solid cyan;
     margin: 1rem;
@@ -37,7 +37,7 @@
     transition: all .2s ease-in-out;
 }
 
-.edit:focus {
+.create:focus {
     width: 20rem;
     animation-name: colorChange;
     animation-duration: 10s;
@@ -104,7 +104,7 @@
     }
 }
 
-.editBtn {
+.createBtn {
     background: transparent;
     border: 2px solid green;
     padding: 1rem 3rem;
@@ -115,7 +115,7 @@
     transition: all .3s ease-in-out;
 }
 
-.editBtn:hover {
+.createBtn:hover {
     background: green;
     border: 2px solid green;
 }
