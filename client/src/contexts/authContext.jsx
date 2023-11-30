@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 import * as authService from '../services/authService';
 import Path from '../paths';
@@ -8,7 +8,6 @@ import usePersistedState from "../hooks/usePersistedState";
 
 const AuthContext = createContext();
 
-AuthContext.displayName = 'AuthContext';
 
 export const AuthProvider = ({
     children,
@@ -44,6 +43,7 @@ export const AuthProvider = ({
       registerSubmitHandler,
       logoutHandler,
       email: auth.email,
+      userId: auth._id,
       isAuthenticated: !!auth.email,
     };
 
@@ -53,5 +53,7 @@ export const AuthProvider = ({
         </AuthContext.Provider>
     );
 };
+
+AuthContext.displayName = 'AuthContext';
  
  export default AuthContext;
