@@ -69,7 +69,7 @@
     border: 2px solid rgb(17, 128, 0);
     padding: 0.5rem 2rem;
     border-radius: 6rem;
-    /* text-decoration: underline; */
+    text-decoration: none; 
     font-size: 1rem;
     color: white;
     cursor: pointer;
@@ -83,7 +83,7 @@
     border: 2px solid rgb(17, 128, 0);
     padding: 0.5rem 2rem;
     border-radius: 6rem;
-    /* text-decoration: underline; */
+    text-decoration: none;
     font-size: 1rem;
     color: white;
     cursor: pointer;
