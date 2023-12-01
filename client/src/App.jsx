@@ -13,12 +13,14 @@ import Posts from './components/Posts/Posts';
 import Details from './components/Details/Details';
 import Logout from './components/Logout/Logout';
 import Edit from './components/Edit/Edit';
+import ErrorBoundary from './components/ErrorBoundary';
 
 
 
 function App() {
 
   return (
+    <ErrorBoundary>
     <AuthProvider>
       <div>
         <Header />
@@ -36,6 +38,7 @@ function App() {
         <Footer />
       </div>
     </AuthProvider>
+    </ErrorBoundary>
   )
 }
 
