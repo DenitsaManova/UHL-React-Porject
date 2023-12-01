@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 import * as postService from '../../services/postsService';
 
 import styles from './Details.module.css'
 import AuthContext from "../../contexts/authContext";
+import { pathToUrl } from "../../../utils/path.Utils";
+import Path from "../../paths";
 
 export default function Details() {
     const { isAuthenticated, email, userId } = useContext(AuthContext);
@@ -37,9 +39,8 @@ export default function Details() {
                         <div>
                             {isOwner && (
                                 <div>
-                                    <button className={styles["editBtn"]}> Edit </button>
-                                    <button className={styles["deleteBtn"]}> Delete </button>
-                                    {/* <Link to={`/posts/`} className={styles["detailsBtn"]}>Details</Link>  */}
+                                    <Link to={pathToUrl(Path.EditPost, { postId })} className={styles["editBtn"]}> Edit </Link>
+                                    <Link to="/posts/delete/:postId" className={styles["deleteBtn"]}> Delete </Link>
                                 </div>
                             )}
                             {!isOwner && (
