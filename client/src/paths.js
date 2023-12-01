@@ -6,7 +6,7 @@ const Path = {
     Posts: '/posts',
     PostDetails: '/posts/details/:postId',
     CreatePost: '/posts/create',
-    EditPost: '/posts/edit',
+    EditPost: '/posts/edit/:postId',
 
 };
 
