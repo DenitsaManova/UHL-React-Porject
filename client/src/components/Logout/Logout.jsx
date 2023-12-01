@@ -15,7 +15,11 @@ export default function Logout() {
                 logoutHandler();
                 navigate(Path.Home);
             })
-            .catch(() => navigate(Path.Home));
+            .catch((error) => {
+                logoutHandler();
+                navigate(Path.Home);
+                console.log(error.message);
+            });
 
     }, []);
     return null;
