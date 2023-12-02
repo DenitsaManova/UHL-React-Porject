@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 import * as postService from '../../services/postsService';
@@ -9,7 +9,8 @@ import { pathToUrl } from "../../../utils/path.Utils";
 import Path from "../../paths";
 
 export default function Details() {
-    const { isAuthenticated, email, userId } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const { isAuthenticated, userId } = useContext(AuthContext);
     const [post, setPost] = useState({});
     const { postId } = useParams();
 
@@ -19,9 +20,17 @@ export default function Details() {
     }, [postId]);
 
     const isOwner = userId === post._ownerId;
-    //console.log(useContext(AuthContext));
-    //console.log(email);
-    //console.log(post._ownerId);
+
+    const deleteButtonClickHandler = async () => {
+        const hasConfirmed = confirm(`Are you sure you want to delete ${post.title}`);
+
+        if(hasConfirmed){
+           await postService.remove(postId);
+
+           navigate(Path.Posts);
+        }
+
+    }
 
     return (
         <section className={styles["container"]}>
@@ -40,7 +49,7 @@ export default function Details() {
                             {isOwner && (
                                 <div>
                                     <Link to={pathToUrl(Path.EditPost, { postId })} className={styles["editBtn"]}> Edit </Link>
-                                    <Link to="/posts/delete/:postId" className={styles["deleteBtn"]}> Delete </Link>
+                                    <button onClick={deleteButtonClickHandler} className={styles["deleteBtn"]}> Delete </button>
                                 </div>
                             )}
                             {!isOwner && (
