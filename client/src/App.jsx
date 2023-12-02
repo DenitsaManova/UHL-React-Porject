@@ -14,6 +14,7 @@ import Details from './components/Details/Details';
 import Logout from './components/Logout/Logout';
 import Edit from './components/Edit/Edit';
 import ErrorBoundary from './components/ErrorBoundary';
+import AuthGuard from './components/Guards/AuthGuard';
 
 
 
@@ -26,14 +27,16 @@ function App() {
         <Header />
         <Routes>
           <Route path={Path.Home} element={<Home />} />
-          {/* TODO: Add route for edit page */}
           <Route path={Path.Posts} element={<Posts />} />
           <Route path={Path.PostDetails} element={<Details />} />
-          <Route path={Path.CreatePost} element={<Create />} />
           <Route path={Path.Login} element={<Login />} />
           <Route path={Path.Register} element={<Regsiter />} />
-          <Route path={Path.Logout} element={<Logout />} />
+
+          <Route element={<AuthGuard />}>
+          <Route path={Path.CreatePost} element={<Create />} />
           <Route path={Path.EditPost} element={<Edit />} />
+          <Route path={Path.Logout} element={<Logout />} />
+          </Route>
         </Routes>
         <Footer />
       </div>
