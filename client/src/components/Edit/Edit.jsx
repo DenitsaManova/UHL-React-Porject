@@ -21,7 +21,11 @@ export default function Edit() {
             });
     }, [postId]);
 
-    const editPostSubmitHandler = async (values) => {
+    const editPostSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        const values = Object.fromEntries(new FormData(e.currentTarget));
+
         try {
             await postService.edit(postId, values);
             navigate('/posts');
@@ -29,15 +33,21 @@ export default function Edit() {
             //add error notification
             console.log(error);
         }
-    }
-    const { values, onChange, onSubmit } = useForm(editPostSubmitHandler, post);
+    };
+
+    const onChange = (e) => {
+        setPost(state => ({
+            ...state,
+            [e.target.name]: e.target.value
+        }))
+    };
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={editPostSubmitHandler}>
             <div className={styles["form-container"]}>
                 <h2 className={styles["edit-title"]}> Edit Post </h2>
-                <input type="text" name="title" className={styles["edit"]} value={values.title} onChange={onChange} placeholder="Title..." />
-                <input type="text" name="imageUrl" className={styles["edit"]} value={values.imageUrl} onChange={onChange} placeholder="https://imgUrl..." />
-                <input type="text" name="description" className={styles["edit"]} value={values.description} onChange={onChange} placeholder="Description..." />
+                <input type="text" name="title" className={styles["edit"]}  value={post.title} onChange={onChange} placeholder="Title..." />
+                <input type="text" name="imageUrl" className={styles["edit"]}  value={post.imageUrl} onChange={onChange} placeholder="https://imgUrl..." />
+                <input type="text" name="description" className={styles["edit"]}  value={post.descrioption} onChange={onChange} placeholder="Description..." />
                 <button className={styles["editBtn"]}> Edit </button>
             </div>
         </form>
