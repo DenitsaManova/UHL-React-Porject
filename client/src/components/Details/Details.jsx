@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 import * as postService from '../../services/postsService';
+import * as likesService from '../../services/likeService';
 
 import styles from './Details.module.css'
 import AuthContext from "../../contexts/authContext";
@@ -13,21 +14,44 @@ export default function Details() {
     const { isAuthenticated, userId } = useContext(AuthContext);
     const [post, setPost] = useState({});
     const { postId } = useParams();
+    const [likesAmount, setLikesAmount] = useState(0);
+    const [like, setLike] = useState(false);
+
+
 
     useEffect(() => {
         postService.getOne(postId)
             .then(setPost);
     }, [postId]);
 
+    useEffect(() => {
+        likesService.allLikesForItem(postId)
+            .then(likes => {
+                setLikesAmount(likes.length);
+
+                if (likes.find(x => x._ownerId === userId)) {
+
+                    setLike(true);
+                }
+            })
+            .catch(err => console.log(err));
+    }, [like]);
+
     const isOwner = userId === post._ownerId;
+
+    const likeHandle = async () => {
+        await likesService.likeItem(postId);
+
+        setLike(true);
+    }
 
     const deleteButtonClickHandler = async () => {
         const hasConfirmed = confirm(`Are you sure you want to delete ${post.title}`);
 
-        if(hasConfirmed){
-           await postService.remove(postId);
+        if (hasConfirmed) {
+            await postService.remove(postId);
 
-           navigate(Path.Posts);
+            navigate(Path.Posts);
         }
 
     }
@@ -54,8 +78,9 @@ export default function Details() {
                             )}
                             {!isOwner && (
                                 <div>
-                                    <button className={styles["editBtn"]}> Like </button>
-                                    <span>0</span>
+                                    {!like && <button className={styles["editBtn"]} onClick={likeHandle}> Like </button>}
+                                    <span>{likesAmount} Likes</span>
+                                    
                                 </div>
                             )}
                         </div>
