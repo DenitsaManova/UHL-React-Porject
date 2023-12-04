@@ -47,7 +47,7 @@ export default function Edit() {
                 <h2 className={styles["edit-title"]}> Edit Post </h2>
                 <input type="text" name="title" className={styles["edit"]}  value={post.title} onChange={onChange} placeholder="Title..." />
                 <input type="text" name="imageUrl" className={styles["edit"]}  value={post.imageUrl} onChange={onChange} placeholder="https://imgUrl..." />
-                <input type="text" name="description" className={styles["edit"]}  value={post.descrioption} onChange={onChange} placeholder="Description..." />
+                <input type="text" name="description" className={styles["edit"]}  value={post.description} onChange={onChange} placeholder="Description..." />
                 <button className={styles["editBtn"]}> Edit </button>
             </div>
         </form>
