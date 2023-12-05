@@ -16,6 +16,7 @@ import Edit from './components/Edit/Edit';
 import ErrorBoundary from './components/ErrorBoundary';
 import AuthGuard from './components/Guards/AuthGuard';
 import NotFound from './components/NotFound/NotFound';
+import AboutUs from './components/AboutUs/AboutUs';
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Header />
         <Routes>
           <Route path={Path.Home} element={<Home />} />
+          <Route path={Path.AboutUs} element={<AboutUs />} />
           <Route path={Path.Posts} element={<Posts />} />
           <Route path={Path.PostDetails} element={<Details />} />
           <Route path={Path.Login} element={<Login />} />

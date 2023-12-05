@@ -85,6 +85,9 @@ export default function Details() {
                             )}
                         </div>
                     )}
+                    {!isAuthenticated && (
+                        <span>{likesAmount} Likes</span>
+                    )}
                 </div>
             </div>
         </section>

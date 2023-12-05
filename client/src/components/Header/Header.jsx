@@ -24,6 +24,7 @@ export default function Header() {
                     <ul className={styles.list}>
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/posts'>Posts</Link></li>
+                        <li><Link to='/aboutus'>About us</Link></li>
                         {isAuthenticated && (
                             <>
                                 <li><Link to='/posts/create'>Create Post</Link></li>
