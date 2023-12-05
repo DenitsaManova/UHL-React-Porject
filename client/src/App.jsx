@@ -15,6 +15,7 @@ import Logout from './components/Logout/Logout';
 import Edit from './components/Edit/Edit';
 import ErrorBoundary from './components/ErrorBoundary';
 import AuthGuard from './components/Guards/AuthGuard';
+import NotFound from './components/NotFound/NotFound';
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path={Path.PostDetails} element={<Details />} />
           <Route path={Path.Login} element={<Login />} />
           <Route path={Path.Register} element={<Regsiter />} />
+          <Route path="*" element={<NotFound />} />
 
           <Route element={<AuthGuard />}>
           <Route path={Path.CreatePost} element={<Create />} />
