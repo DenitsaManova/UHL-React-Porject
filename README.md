@@ -24,8 +24,27 @@ SoftUni other requirements:
    - Context API
 
 Pages:
-   - HomePage: 
+   - Home Page: 
     ![home](/UHL%20ReadMe%20images/home.png)
+   - Post Page: 
+    ![post](/UHL%20ReadMe%20images/posts.png)
+   - About us Page: 
+    ![aboutus](/UHL%20ReadMe%20images/about%20us.png)
+   - Details page for not authenticated user: 
+    ![details](/UHL%20ReadMe%20images/details%20not%20authenticated.png)
+   - Details page for authenticated user: 
+    ![details](/UHL%20ReadMe%20images/details%20authenticated.png)
+   - Details page for owner: 
+    ![details](/UHL%20ReadMe%20images/details%20owner.png)
+   - Edit Page: 
+    ![edit](/UHL%20ReadMe%20images/edit%20post.png)
+   - Login Page: 
+    ![login](/UHL%20ReadMe%20images/login.png)
+   - Register Page: 
+    ![register](/UHL%20ReadMe%20images/register.png)
+   - Create Page: 
+    ![create](/UHL%20ReadMe%20images/create%20post.png)
+   
 
 
 
