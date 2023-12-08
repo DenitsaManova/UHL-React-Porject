@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import * as postService from '../../services/postsService';
 
 import styles from './Edit.module.css';
-import useForm from '../../hooks/useForm';
+//import useForm from '../../hooks/useForm';
 import { useEffect, useState } from 'react';
 
 export default function Edit() {
@@ -50,7 +50,7 @@ export default function Edit() {
             <div className={styles["form-container"]}>
                 <h2 className={styles["edit-title"]}> Edit Post </h2>
                 <input type="text" name="title" className={styles["edit"]}  value={post.title} onChange={onChange} placeholder="Title..." />
-                <input type="text" name="imageUrl" className={styles["edit"]}  value={post.imageUrl} onChange={onChange} placeholder="https://imgUrl..." />
+                <input type="url" name="imageUrl" className={styles["edit"]}  value={post.imageUrl} onChange={onChange} placeholder="https://imgUrl..." />
                 <input type="text" name="description" className={styles["edit"]}  value={post.description} onChange={onChange} placeholder="Description..." />
                 <button className={styles["editBtn"]}> Edit </button>
             </div>

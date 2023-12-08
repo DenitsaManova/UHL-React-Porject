@@ -25,7 +25,7 @@ export default function Create() {
             <div className={styles["form-container"]}>
                 <h2 className={styles["create-title"]}> Create Post </h2>
                 <input type="text" name="title" className={styles["create"]} placeholder="Title..." />
-                <input type="text" name="imageUrl" className={styles["create"]} placeholder="https://imgUrl..." />
+                <input type="url" name="imageUrl" className={styles["create"]} placeholder="https://imgUrl..." />
                 <input type="text" name="description" className={styles["create"]} placeholder="Description..." />
                 <button className={styles["createBtn"]}> Create </button>
             </div>
