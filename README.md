@@ -25,7 +25,7 @@ SoftUni other requirements:
 
 Pages:
    - HomePage: 
-    ![home]('\UHL ReadMe images\home.png')
+    ![home]('UHL ReadMe images\home.png')
 
 
 
