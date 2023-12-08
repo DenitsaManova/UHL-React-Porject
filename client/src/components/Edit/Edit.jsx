@@ -27,6 +27,10 @@ export default function Edit() {
         const values = Object.fromEntries(new FormData(e.currentTarget));
 
         try {
+            if(!values.title || !values.imageUrl || !values.description){
+                alert("Please fill in all fields!");
+                return;
+            }
             await postService.edit(postId, values);
             navigate('/posts');
         } catch (error) {
