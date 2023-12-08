@@ -1,8 +1,26 @@
-# React + Vite
+Overview:
+URBAN HOON LIFESTYLE is a single page application for car enthusiasts. After registration and login you can add new posts and like already created ones. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Functionalities:
+   - Before registration people can view the posts.
+   - After registration users can create, edit and delete their own posts and like all post in the forum.
 
-Currently, two official plugins are available:
+Test accounts:
+   - email: peter@abv.bg
+   - password: 123456
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   - email: george@abv.bg
+   - password: 123456
+
+SoftUni other requirements:
+   - error handling 
+   - data validation
+   - components with separate CSS files
+   - React Custom Hooks
+   - Context API
+
+Pages:
+   - HomePage: 
+    ![home](client\UHL ReadMe images\home.png)
+
+
