@@ -10,10 +10,13 @@ export default function Create() {
         const postData = Object.fromEntries(new FormData(e.currentTarget));
 
         try {
+            if(!postData.title || !postData.imageUrl || !postData.description){
+                alert("Please fill in all fields!");
+                return;
+            }
             await postService.create(postData);
             navigate('/posts');
         }catch(error){
-            //add error notification
             console.log(error);
         }
     }
